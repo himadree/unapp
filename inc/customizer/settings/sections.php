@@ -1,8 +1,8 @@
 <?php
 /**
- * U Theme Customizer Panels & Sections
+ * MedZone_Lite Theme Customizer Panels & Sections
  *
- * @package Unapp
+ * @package MedZone_Lite
  * @since   1.0
  */
 
@@ -18,51 +18,48 @@ $panels = array(
 	 * General panel
 	 */
 	array(
-		'id'   => 'unapp_panel_general',
+		'id'   => 'medzone_lite_panel_general',
 		'args' => array(
 			'priority'       => 24,
 			'capability'     => 'edit_theme_options',
 			'theme_supports' => '',
-			'title'          => esc_html__( 'General options', 'unapp' ),
+			'title'          => esc_html__( 'General options', 'medzone-lite' ),
 		),
 	),
 	/**
 	 * Content Panel
 	 */
 	array(
-		'id'   => 'unapp_panel_content',
+		'id'   => 'medzone_lite_panel_content',
 		'args' => array(
 			'priority'       => 27,
 			'capability'     => 'edit_theme_options',
 			'theme_supports' => '',
 			'type'           => 'epsilon-panel-regular',
-			'title'          => esc_html__( 'Page Builder', 'unapp' ),
+			'title'          => esc_html__( 'Page sections', 'medzone-lite' ),
 		),
 	),
 	/**
 	 * Color panel
 	 */
 	array(
-		'id'   => 'unapp_panel_colors',
+		'id'   => 'medzone_lite_panel_colors',
 		'args' => array(
 			'priority'       => 29,
 			'capability'     => 'edit_theme_options',
 			'theme_supports' => '',
-			'title'          => esc_html__( 'Colors', 'unapp' ),
+			'title'          => esc_html__( 'Colors', 'medzone-lite' ),
 		),
 	),
-	/**
-	 * Content panel
-	 */
 	array(
-		'id'   => 'unapp_panel_section_content',
+		'id'   => 'medzone_lite_panel_section_content',
 		'args' => array(
 			'priority'       => 9999,
 			'capability'     => 'edit_theme_options',
 			'theme_supports' => '',
 			'type'           => 'epsilon-panel-regular',
-			'title'          => esc_html__( 'Front Page Content', 'unapp' ),
-			'panel'          => 'unapp_panel_content',
+			'title'          => esc_html__( 'Front Page Content', 'medzone-lite' ),
+			'panel'          => 'medzone_lite_panel_content',
 			'hidden'         => true,
 		),
 	),
@@ -71,126 +68,143 @@ $panels = array(
 /**
  * Register sections
  */
-$sections = array(
+$sections            = array(
+	array(
+		'id'   => 'medzone_lite_recomended_section',
+		'args' => array(
+			'type'                         => 'epsilon-section-recommended-actions',
+			'title'                        => esc_html__( 'Recomended Actions', 'medzone-lite' ),
+			'social_text'                  => esc_html__( 'MachoThemes is also social', 'medzone-lite' ),
+			'plugin_text'                  => esc_html__( 'Recomended Plugins', 'medzone-lite' ),
+			'actions'                      => MedZone_Lite_Dashboard_Setup::get_instance()->get_actions(),
+			'plugins'                      => MedZone_Lite_Dashboard_Setup::get_instance()->get_plugins(),
+			'theme_specific_option'        => MedZone_Lite_Dashboard_Setup::get_instance()->theme['theme-slug'] . '_actions_left',
+			'theme_specific_plugin_option' => MedZone_Lite_Dashboard_Setup::get_instance()->theme['theme-slug'] . '_plugins_left',
+			'facebook'                     => 'https://www.facebook.com/machothemes',
+			'twitter'                      => 'https://twitter.com/MachoThemez',
+			'wp_review'                    => 'https://wordpress.org/support/theme/medzone-lite/reviews/?rate=5#new-post',
+			'priority'                     => 0,
+		),
+	),
 	/**
 	 * General section
 	 */
-//	array(
-//		'id'   => 'unapp_layout_section',
-//		'args' => array(
-//			'title'    => esc_html__( 'Layout & Typography', 'unapp' ),
-//			'panel'    => 'unapp_panel_general',
-//			'priority' => 3,
-//		),
-//	),
 	array(
-		'id'   => 'unapp_footer_section',
+		'id'   => 'medzone_lite_header_section',
 		'args' => array(
-			'title'    => esc_html__( 'Footer', 'unapp' ),
-			'panel'    => 'unapp_panel_general',
+			'title'    => esc_html__( 'Header', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_general',
+			'priority' => 1,
+		),
+	),
+	array(
+		'id'   => 'medzone_lite_layout_section',
+		'args' => array(
+			'title'    => esc_html__( 'Layout & Typography', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_general',
+			'priority' => 3,
+		),
+	),
+	array(
+		'id'   => 'medzone_lite_footer_section',
+		'args' => array(
+			'title'    => esc_html__( 'Footer', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_general',
 			'priority' => 50,
 		),
 	),
+
 	/**
 	 * Repeatable sections container
 	 */
 	array(
-		'id'   => 'unapp_repeatable_section',
+		'id'   => 'medzone_lite_repeatable_section',
 		'args' => array(
-			'title'       => esc_html__( 'Page Sections', 'unapp' ),
-			'description' => esc_html__( 'Unapp theme pages are rendered through the use of these sections.', 'unapp' ),
+			'title'       => esc_html__( 'Page Sections', 'medzone-lite' ),
+			'description' => esc_html__( 'The `Page sections` area will allow you to build your content with the help of our predefined set of sections. You don\'t need to write a single line of code, just select the sections you want to display in the current page and fill in the required fields .', 'medzone-lite' ),
 			'priority'    => 0,
-			'panel'       => 'unapp_panel_content',
+			'panel'       => 'medzone_lite_panel_content',
 		),
 	),
 
 	/**
 	 * Theme Content Sections
 	 */
-
-	// Unapp Sliders
 	array(
-		'id'   => 'unapp_slides_section',
+		'id'   => 'medzone_lite_doctors_section',
 		'args' => array(
-			'title'    => esc_html__( 'Slides', 'unapp' ),
-			'panel'    => 'unapp_panel_section_content',
+			'title'    => esc_html__( 'Doctors', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_section_content',
 			'priority' => 1,
 			'type'     => 'epsilon-section-doubled',
 		),
 	),
-	// Services
 	array(
-		'id'    => 'unapp_services_section',
-		'args'  => array(
-			'title'     => esc_html__( 'Services', 'unapp' ),
-			'panel'     => 'unapp_panel_section_content',
-			'priority'  => 2,
-			'type'      => 'epsilon-section-doubled',
-		),
-	),
-	 // Services page
-	array(
-		'id'    => 'unapp_page_services_section',
-		'args'  => array(
-			'title'     => esc_html__( 'Page Services', 'unapp' ),
-			'panel'     => 'unapp_panel_section_content',
-			'priority'  => 7,
-			'type'      => 'epsilon-section-doubled',
-		),
-	),
-	 //Featured Left
-	array(
-		'id'    => 'unapp_featured_section_left',
-		'args'  => array(
-			'title'     => esc_html__( 'Featured Left', 'unapp' ),
-			'panel'     => 'unapp_panel_section_content',
-			'priority'  => 3,
-			'type'      => 'epsilon-section-doubled'
-		),
-	),
-	//Featured Right
-	array(
-		'id'    => 'unapp_featured_section_right',
-		'args'  => array(
-			'title'     => esc_html__( 'Featured Right', 'unapp' ),
-			'panel'     => 'unapp_panel_section_content',
-			'priority'  => 3,
-			'type'      => 'epsilon-section-doubled'
-		),
-	),
-	// Unapp Counter
-	array(
-		'id'    => 'unapp_counter_section',
-		'args'  => array(
-			'title'     => esc_html__( 'Counter', 'unapp' ),
-			'panel'     => 'unapp_panel_section_content',
-			'priority'  => 4,
-			'type'      => 'epsilon-section-doubled'
-		),
-	),
-	// Unapp Pricing
-	array(
-		'id'    => 'unapp_pricing_section',
-		'args'  => array(
-			'title'     => esc_html__( 'Pricing', 'unapp' ),
-			'panel'     => 'unapp_panel_section_content',
-			'priority'  => 5,
-			'type'      => 'epsilon-section-doubled',
-		),
-	),
-	// Unapp Team
-	array(
-		'id'   => 'unapp_team_members_section',
+		'id'   => 'medzone_lite_cta_services',
 		'args' => array(
-			'title'    => esc_html__( 'Team Members', 'unapp' ),
-			'panel'    => 'unapp_panel_section_content',
+			'title'    => esc_html__( 'Hero call to action services', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_section_content',
+			'priority' => 2,
+			'type'     => 'epsilon-section-doubled',
+		),
+	),
+	array(
+		'id'   => 'medzone_lite_about_info',
+		'args' => array(
+			'title'    => esc_html__( 'About', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_section_content',
+			'priority' => 3,
+			'type'     => 'epsilon-section-doubled',
+		),
+	),
+	array(
+		'id'   => 'medzone_lite_specialties',
+		'args' => array(
+			'title'    => esc_html__( 'Specialties', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_section_content',
+			'priority' => 4,
+			'type'     => 'epsilon-section-doubled',
+		),
+	),
+	array(
+		'id'   => 'medzone_lite_hospital_information_section',
+		'args' => array(
+			'title'    => esc_html__( 'Hospital Information', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_section_content',
+			'priority' => 5,
+			'type'     => 'epsilon-section-doubled',
+		),
+	),
+	array(
+		'id'   => 'medzone_lite_testimonials_section',
+		'args' => array(
+			'title'    => esc_html__( 'Testimonials', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_section_content',
 			'priority' => 6,
 			'type'     => 'epsilon-section-doubled',
 		),
 	),
+	array(
+		'id'   => 'medzone_lite_hospital_schedule_section',
+		'args' => array(
+			'title'    => esc_html__( 'Schedule', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_section_content',
+			'priority' => 6,
+			'type'     => 'epsilon-section-doubled',
+		),
+	),
+	array(
+		'id'   => 'medzone_lite_slides_section',
+		'args' => array(
+			'title'    => esc_html__( 'Slides', 'medzone-lite' ),
+			'panel'    => 'medzone_lite_panel_section_content',
+			'priority' => 7,
+			'type'     => 'epsilon-section-doubled',
+		),
+	),
 );
-
-$visible_recommended = get_option( 'unapp_recommended_actions', false );
+$stylesheet          = get_stylesheet();
+$visible_recommended = get_option( $stylesheet . '_recommended_actions', false );
 if ( $visible_recommended ) {
 	unset( $sections[0] );
 }
@@ -201,3 +215,4 @@ $collection = array(
 );
 
 Epsilon_Customizer::add_multiple( $collection );
+

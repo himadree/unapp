@@ -60,13 +60,13 @@ class Unapp_About_Widget extends WP_Widget {
 	 * @param array $instance Previously saved values from database.
 	 */
 	public function form( $instance ) {
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'About unapp', 'unapp' );
-		$description = ! empty( $instance['description'] ) ? $instance['description'] : esc_html__( 'Description', 'unapp' );
-		$facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : esc_html__( '#', 'unapp' );
-		$twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : esc_html__( 'Twitter', 'unapp' );
-		$linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : esc_html__( 'Linkedin', 'unapp' );
-		$dribbble = ! empty( $instance['dribbble'] ) ? $instance['dribbble'] : esc_html__( 'Dribbdle', 'unapp' );
-		$instagram = ! empty( $instance['instagram'] ) ? $instance['instagram'] : esc_html__( 'Instagram', 'unapp' );
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : 'About unapp';
+		$description = ! empty( $instance['description'] ) ? $instance['description'] : 'Description';
+		$facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : '#';
+		$twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : '#';
+		$linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : '#';
+		$dribbble = ! empty( $instance['dribbble'] ) ? $instance['dribbble'] : '#';
+		$instagram = ! empty( $instance['instagram'] ) ? $instance['instagram'] : '#';
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'unapp' ); ?></label>

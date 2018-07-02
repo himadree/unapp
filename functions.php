@@ -121,7 +121,7 @@ if( ! function_exists( 'unapp_setup' ) ) {
 			)
 		);
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		//add_theme_support( 'customize-selective-refresh-widgets' );
 	}
 }
 add_action( 'after_setup_theme', 'unapp_setup' );
@@ -178,6 +178,10 @@ function unapp_scripts() {
 	// owl carousel
 	wp_enqueue_style( 'unapp-owl-carousel-min', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', array(), false, 'all' );
 	wp_enqueue_style( 'unapp-owl-theme-default-min', get_template_directory_uri() . '/assets/css/owl.theme.default.min.css', array(), false, 'all' );
+
+	//Google Font
+	wp_enqueue_style( 'google-font', esc_url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Nunito:200,300,400'), array(), false, 'all' );
+
 	// Custom style
 	wp_enqueue_style( 'unapp-main', get_template_directory_uri() . '/assets/css/style.css', array(), false, 'all' );
 	// Load jQuery
@@ -219,46 +223,6 @@ function unapp_scripts() {
 add_action( 'wp_enqueue_scripts', 'unapp_scripts' );
 
 /**
- * One click demo data inport
- * @return array
- */
-function unapp_demo_import_files() {
-	return array(
-		array(
-			'import_file_name'             => esc_html__('Unapp Demo Data','unapp'),
-			'local_import_file'            => trailingslashit( get_template_directory() ) . 'demo_data/content.xml',
-			'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'demo_data/customizer.dat',
-			'local_import_widget_file' => trailingslashit( get_template_directory() ) . 'demo_data/widget.json',
-			'import_notice'                => esc_html__( 'Import Unapp Demo Data.', 'unapp' ),
-		),
-	);
-}
-add_filter( 'pt-ocdi/import_files', 'unapp_demo_import_files');
-
-/*
- *
- */
-function unapp_demo_page_setting() {
-	// Assign menus to their locations.
-	$main_menu = get_term_by('Header Menu');
-
-	set_theme_mod( 'nav_menu_locations', array(
-			'primary' => $main_menu->term_id,
-		)
-	);
-
-	// Assign front page and posts page (blog page).
-	$front_page_id = get_page_by_title( 'Home' );
-	$blog_page_id  = get_page_by_title( 'Blog' );
-
-	update_option( 'show_on_front', 'page' );
-	update_option( 'page_on_front', $front_page_id->ID );
-	update_option( 'page_for_posts', $blog_page_id->ID );
-
-}
-add_action( 'pt-ocdi/after_import', 'unapp_demo_page_setting' );
-
-/**
  * Registers an editor stylesheet for the theme.
  */
 function unapp_theme_add_editor_styles() {
@@ -272,12 +236,9 @@ require get_parent_theme_file_path() . '/inc/unapp_navwalker.php';
 // Require theme custom functions
 require get_parent_theme_file_path() . '/inc/unapp_functions.php';
 
-//Load the unapp activate plugins class
-require get_template_directory() . '/inc/class-unappwc.php';
-
 // Require theme custom widget
 require get_parent_theme_file_path() . '/inc/widget/widget_setting.php';
 
 // Require Epsilon Cutomizer API
 require get_parent_theme_file_path() . '/inc/class-unapp-autoloader.php';
-$unapp = Unapp::get_instance();
+$unapp = new Unapp();

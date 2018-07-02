@@ -132,7 +132,7 @@ class Epsilon_Typography {
 	public function google_fonts( $font = null ) {
 		global $wp_filesystem;
 		if ( empty( $wp_filesystem ) ) {
-			require get_parent_theme_file_path() . '/wp-admin/includes/file.php';
+			require ABSPATH . '/wp-admin/includes/file.php';
 			WP_Filesystem();
 		}
 

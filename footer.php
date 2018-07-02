@@ -15,7 +15,7 @@
                 <div class="col-md-12 text-center">
                     <p>
 						<?php
-					echo wp_kses_post( get_theme_mod( 'unapp_copyright_contents', sprintf( esc_html__( 'Unapp Themes &copy; %s. All rights reserved.', 'unapp' ), date( 'Y' ) ) ) );
+					echo wp_kses_post( get_theme_mod( 'unapp_copyright_contents', 'Copyright 2018 All rights reserved' ) );
 					?>
                     </p>
                 </div>

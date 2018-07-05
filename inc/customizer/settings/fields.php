@@ -18,23 +18,12 @@ if ( ! defined( 'WPINC' ) ) {
  * General section options
  ***************************************************************************************/
 Epsilon_Customizer::add_field(
-	'medzone_lite_enable_menu_search',
+	'unapp_enable_go_top',
 	array(
 		'type'        => 'epsilon-toggle',
-		'label'       => esc_html__( 'Search icon in the menu', 'medzone-lite' ),
-		'description' => esc_html__( 'Toggle the display of the search icon and functionality in the main navigation menu.', 'medzone-lite' ),
-		'section'     => 'medzone_lite_header_section',
-		'default'     => true,
-	)
-);
-
-Epsilon_Customizer::add_field(
-	'medzone_lite_enable_go_top',
-	array(
-		'type'        => 'epsilon-toggle',
-		'label'       => esc_html__( 'Go to top button', 'medzone-lite' ),
-		'description' => esc_html__( 'Toggle the display of the go to top button.', 'medzone-lite' ),
-		'section'     => 'medzone_lite_header_section',
+		'label'       => esc_html__( 'Go to top button', 'unapp' ),
+		'description' => esc_html__( 'Toggle the display of the go to top button.', 'unapp' ),
+		'section'     => 'unapp_footer_section',
 		'default'     => true,
 	)
 );
@@ -43,10 +32,10 @@ Epsilon_Customizer::add_field(
  * Layout section options
  */
 Epsilon_Customizer::add_field(
-	'medzone_lite_layout',
+	'unapp_layout',
 	array(
 		'type'     => 'epsilon-layouts',
-		'section'  => 'medzone_lite_layout_section',
+		'section'  => 'unapp_layout_section',
 		'layouts'  => array(
 			1 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/one-column.png',
 			2 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/two-column.png',
@@ -66,14 +55,14 @@ Epsilon_Customizer::add_field(
 		),
 		'min_span' => 4,
 		'fixed'    => true,
-		'label'    => esc_html__( 'Blog Layout', 'medzone-lite' ),
+		'label'    => esc_html__( 'Blog Layout', 'unapp' ),
 	)
 );
 Epsilon_Customizer::add_field(
-	'medzone_lite_page_layout',
+	'unapp_page_layout',
 	array(
 		'type'     => 'epsilon-layouts',
-		'section'  => 'medzone_lite_layout_section',
+		'section'  => 'unapp_layout_section',
 		'layouts'  => array(
 			1 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/one-column.png',
 			2 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/two-column.png',
@@ -93,20 +82,20 @@ Epsilon_Customizer::add_field(
 		),
 		'min_span' => 4,
 		'fixed'    => true,
-		'label'    => esc_html__( 'Page Layout', 'medzone-lite' ),
+		'label'    => esc_html__( 'Page Layout', 'unapp' ),
 	)
 );
 /**
  * Typography section options
  */
 Epsilon_Customizer::add_field(
-	'medzone_lite_typography_headings',
+	'unapp_typography_headings',
 	array(
 		'type'          => 'epsilon-typography',
 		'transport'     => 'postMessage',
-		'label'         => esc_html__( 'Headings', 'medzone-lite' ),
-		'section'       => 'medzone_lite_layout_section',
-		'description'   => esc_html__( 'Note: Current typography controls will only be affecting the blog.', 'medzone-lite' ),
+		'label'         => esc_html__( 'Headings', 'unapp' ),
+		'section'       => 'unapp_layout_section',
+		'description'   => esc_html__( 'Note: Current typography controls will only be affecting the blog.', 'unapp' ),
 		'stylesheet'    => 'medzone-lite-main',
 		'choices'       => array(
 			'font-family',
@@ -130,13 +119,13 @@ Epsilon_Customizer::add_field(
 	)
 );
 Epsilon_Customizer::add_field(
-	'medzone_lite_paragraphs_typography',
+	'unapp_paragraphs_typography',
 	array(
 		'type'          => 'epsilon-typography',
 		'transport'     => 'postMessage',
-		'section'       => 'medzone_lite_layout_section',
-		'label'         => esc_html__( 'Paragraphs', 'medzone-lite' ),
-		'description'   => esc_html__( 'Note: Current typography controls will only be affecting the blog.', 'medzone-lite' ),
+		'section'       => 'unapp_layout_section',
+		'label'         => esc_html__( 'Paragraphs', 'unapp' ),
+		'description'   => esc_html__( 'Note: Current typography controls will only be affecting the blog.', 'unapp' ),
 		'stylesheet'    => 'medzone-lite-main',
 		'choices'       => array(
 			'font-family',
@@ -158,11 +147,11 @@ Epsilon_Customizer::add_field(
  * Blog section options
  */
 Epsilon_Customizer::add_field(
-	'medzone_lite_show_single_post_categories',
+	'unapp_show_single_post_categories',
 	array(
 		'type'        => 'epsilon-toggle',
-		'label'       => esc_html__( 'Post Meta: Categories', 'medzone-lite' ),
-		'description' => esc_html__( 'This will disable the category section at the beggining of the post.', 'medzone-lite' ),
+		'label'       => esc_html__( 'Post Meta: Categories', 'unapp' ),
+		'description' => esc_html__( 'This will disable the category section at the beggining of the post.', 'unapp' ),
 		'section'     => 'header_image',
 		'default'     => true,
 	)
@@ -170,22 +159,22 @@ Epsilon_Customizer::add_field(
 
 
 Epsilon_Customizer::add_field(
-	'medzone_lite_enable_author_box',
+	'unapp_enable_author_box',
 	array(
 		'type'        => 'epsilon-toggle',
-		'label'       => esc_html__( 'Post meta: Author', 'medzone-lite' ),
-		'description' => esc_html__( 'Toggle the display of the author box, at the left side of the post. Will only display if the author has a description defined.', 'medzone-lite' ),
+		'label'       => esc_html__( 'Post meta: Author', 'unapp' ),
+		'description' => esc_html__( 'Toggle the display of the author box, at the left side of the post. Will only display if the author has a description defined.', 'unapp' ),
 		'section'     => 'header_image',
 		'default'     => true,
 	)
 );
 
 Epsilon_Customizer::add_field(
-	'medzone_lite_show_single_post_tags',
+	'unapp_show_single_post_tags',
 	array(
 		'type'        => 'epsilon-toggle',
-		'label'       => esc_html__( 'Post Meta: Tags', 'medzone-lite' ),
-		'description' => esc_html__( 'This will disable the tags zone at the end of the post.', 'medzone-lite' ),
+		'label'       => esc_html__( 'Post Meta: Tags', 'unapp' ),
+		'description' => esc_html__( 'This will disable the tags zone at the end of the post.', 'unapp' ),
 		'section'     => 'header_image',
 		'default'     => true,
 	)
@@ -195,10 +184,10 @@ Epsilon_Customizer::add_field(
  * Footer section options
  */
 Epsilon_Customizer::add_field(
-	'medzone_lite_footer_columns',
+	'unapp_footer_columns',
 	array(
 		'type'     => 'epsilon-layouts',
-		'section'  => 'medzone_lite_footer_section',
+		'section'  => 'unapp_footer_section',
 		'priority' => 0,
 		'layouts'  => array(
 			1 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/one-column.png',
@@ -229,16 +218,16 @@ Epsilon_Customizer::add_field(
 		),
 		'fixed'    => true,
 		'min_span' => 2,
-		'label'    => esc_html__( 'Footer Columns', 'medzone-lite' ),
+		'label'    => esc_html__( 'Footer Columns', 'unapp' ),
 	)
 );
 
 Epsilon_Customizer::add_field(
-	'medzone_lite_copyright_contents',
+	'unapp_copyright_contents',
 	array(
 		'type'    => 'epsilon-text-editor',
-		'label'   => esc_html__( 'Copyright Text', 'medzone-lite' ),
-		'section' => 'medzone_lite_footer_section',
+		'label'   => esc_html__( 'Copyright Text', 'unapp' ),
+		'section' => 'unapp_footer_section',
 	)
 );
 
@@ -246,331 +235,333 @@ Epsilon_Customizer::add_field(
 /**
  * Theme Content
  */
+
 /**
- * Doctors
+ * Slides
  */
 Epsilon_Customizer::add_field(
-	'medzone_lite_doctors',
+	'unapp_slides',
 	array(
 		'type'         => 'epsilon-repeater',
-		'section'      => 'medzone_lite_doctors_section',
+		'section'      => 'unapp_slides_section',
 		'save_as_meta' => Epsilon_Content_Backup::get_instance()->setting_page,
-		'label'        => esc_html__( 'Doctors', 'medzone-lite' ),
-		'button_label' => esc_html__( 'Add new entries', 'medzone-lite' ),
+		'label'        => esc_html__( 'Slides', 'unapp' ),
+		'button_label' => esc_html__( 'Add new slides', 'unapp' ),
 		'row_label'    => array(
 			'type'  => 'field',
-			'value' => esc_html__( 'Doctors', 'medzone-lite' ),
-			'field' => 'doctor_name',
+			'field' => 'slides_title',
 		),
-
-		'fields' => array(
-			'doctor_name'            => array(
-				'label'   => esc_html__( 'Name', 'medzone-lite' ),
-				'type'    => 'text',
-				'default' => esc_html__( 'Dr. Jonathan Doe', 'medzone-lite' ),
+		'fields'       => array(
+			'slides_title'       => array(
+				'label'             => esc_html__( 'Title', 'unapp' ),
+				'type'              => 'text',
+				'sanitize_callback' => 'wp_kses_post',
+				'default'           => 'Growing your business',
 			),
-			'doctor_group'           => array(
-				'label'   => esc_html__( 'Specialty', 'medzone-lite' ),
-				'type'    => 'text',
-				'default' => esc_html__( 'Surgeon', 'medzone-lite' ),
-			),
-			'doctor_description'     => array(
-				'label'   => esc_html__( 'Description', 'medzone-lite' ),
-				'type'    => 'epsilon-text-editor',
-				'default' => wp_kses_post( '<p>Pellentesque dapibus tristique ornare. Quisque vitanimate viverra lorem. animatenean luctus lorem mi, et lobortis turpis porttitor ut. Donec dictum dolor varius metus pellentesque, quis elementum massa varius.</p>' ),
-			),
-			'doctor_image'           => array(
-				'label'   => esc_html__( 'Portrait', 'medzone-lite' ),
+			'slides_image'       => array(
+				'label'   => esc_html__( 'Portrait', 'unapp' ),
 				'type'    => 'epsilon-image',
-				'size'    => 'medzone-doctor-portrait',
-				'default' => '',
-			),
-			'doctor_social_facebook' => array(
-				'label'   => esc_html__( 'Facebook', 'medzone-lite' ),
-				'type'    => 'url',
-				'default' => 'http://facebook.com',
-			),
-			'doctor_social_twitter'  => array(
-				'label'   => esc_html__( 'Twitter', 'medzone-lite' ),
-				'type'    => 'url',
-				'default' => 'http://twitter.com',
-			),
-			'doctor_social_google'   => array(
-				'label'   => esc_html__( 'Google', 'medzone-lite' ),
-				'type'    => 'url',
-				'default' => 'http://google.com',
-			),
-			'doctor_social_linkedin' => array(
-				'label'   => esc_html__( 'LinkedIn', 'medzone-lite' ),
-				'type'    => 'url',
-				'default' => 'http://linkedin.com',
+				'size'    => 'unapp-main-slider',
+				'default' => esc_url( get_template_directory_uri() . '/assets/images/dashboard_full_1.jpg' ),
 			),
 		),
 	)
 );
 
 /**
- * Hero call to action services
+ * Services
  */
 Epsilon_Customizer::add_field(
-	'medzone_lite_cta_services',
+	'unapp_services',
 	array(
 		'type'         => 'epsilon-repeater',
-		'section'      => 'medzone_lite_cta_services',
+		'section'      => 'unapp_services_section',
 		'save_as_meta' => Epsilon_Content_Backup::get_instance()->setting_page,
-		'label'        => esc_html__( 'Services', 'medzone-lite' ),
-		'button_label' => esc_html__( 'Add new entries', 'medzone-lite' ),
+		'label'        => esc_html__( 'Services', 'unapp' ),
+		'button_label' => esc_html__( 'Add new service', 'unapp' ),
 		'row_label'    => array(
 			'type'  => 'field',
-			'value' => esc_html__( 'Service', 'medzone-lite' ),
 			'field' => 'service_title',
 		),
 		'fields'       => array(
 			'service_title'       => array(
-				'label'             => esc_html__( 'Service title', 'medzone-lite' ),
+				'label'             => esc_html__( 'Title', 'unapp' ),
 				'type'              => 'text',
 				'sanitize_callback' => 'wp_kses_post',
-				'default'           => esc_html__( 'Ambulance', 'medzone-lite' ),
+				'default'           => 'Create your own template',
+			),
+			'service_desc' => array(
+				'label'             => esc_html__( 'Description', 'unapp' ),
+				'type'              => 'epsilon-text-editor',
+				'sanitize_callback' => 'wp_kses_post',
+				'default'           => 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
 			),
 			'service_icon'        => array(
-				'label'   => esc_html__( 'Service Icon', 'medzone-lite' ),
+				'label'   => esc_html__( 'Icon', 'unapp' ),
 				'type'    => 'epsilon-icon-picker',
-				'default' => 'fa fa-bold',
+				'default' => 'fa fa-users',
 			),
-			'service_description' => array(
-				'label'   => esc_html__( 'Service description #1', 'medzone-lite' ),
-				'type'    => 'text',
-				'default' => esc_html__( 'Lorem Ipsum Dolor Sit Amet', 'medzone-lite' ),
-			),
+			'services_animate'  => array(
+				'label' => esc_html__( 'Animate', 'unapp' ),
+				'type' => 'select',
+				'choices' => array(
+					'fadeIn' => esc_html__( 'fadeIn', 'unapp' ),
+					'fadeInLeft' => esc_html__( 'fadeInLeft', 'unapp' ),
+					'fadeInRight' => esc_html__( 'fadeInRight', 'unapp' ),
+					'fadeInUp' => esc_html__( 'fadeInUp', 'unapp' ),
+				),
+			)
 		),
 	)
 );
 
 /**
- * About section content creation
+ * Featured Left
  */
 Epsilon_Customizer::add_field(
-	'medzone_lite_about_info',
+	'unapp_featured_left',
 	array(
-		'type'         => 'epsilon-repeater',
-		'section'      => 'medzone_lite_about_info',
-		'save_as_meta' => Epsilon_Content_Backup::get_instance()->setting_page,
-		'label'        => esc_html__( 'About', 'medzone-lite' ),
-		'button_label' => esc_html__( 'Add new entries', 'medzone-lite' ),
-		'row_label'    => array(
+		'type'          => 'epsilon-repeater',
+		'section'       => 'unapp_featured_section_left',
+		'save_as_meta'  => Epsilon_Content_Backup::get_instance()->setting_page,
+		'label'         => esc_html__( 'Featured Work', 'unapp' ),
+		'button_label'  => esc_html__( 'Add new items', 'unapp' ),
+		'row_label'     => array(
 			'type'  => 'field',
-			'value' => esc_html__( 'Information', 'medzone-lite' ),
-			'field' => 'info_title',
+			'field' => 'featured_icon'
 		),
-		'fields'       => array(
-			'info_title'       => array(
-				'label'             => esc_html__( 'Title', 'medzone-lite' ),
-				'type'              => 'text',
-				'sanitize_callback' => 'wp_kses_post',
-				'default'           => esc_html__( 'Ambulance', 'medzone-lite' ),
-			),
-			'info_description' => array(
-				'label'             => esc_html__( 'Description', 'medzone-lite' ),
-				'type'              => 'epsilon-text-editor',
-				'sanitize_callback' => 'wp_kses_post',
-				'default'           => esc_html__( 'Lorem Ipsum Dolor Sit Amet', 'medzone-lite' ),
-			),
-		),
-	)
-);
-
-/**
- * Specialties section
- */
-Epsilon_Customizer::add_field(
-	'medzone_lite_specialties',
-	array(
-		'type'         => 'epsilon-repeater',
-		'section'      => 'medzone_lite_specialties',
-		'save_as_meta' => Epsilon_Content_Backup::get_instance()->setting_page,
-		'label'        => esc_html__( 'Specialties', 'medzone-lite' ),
-		'button_label' => esc_html__( 'Add new entries', 'medzone-lite' ),
-		'row_label'    => array(
-			'type'  => 'field',
-			'value' => esc_html__( 'Specialty', 'medzone-lite' ),
-			'field' => 'specialties_title',
-		),
-		'fields'       => array(
-			'specialties_title'       => array(
-				'label'             => esc_html__( 'Specialty title', 'medzone-lite' ),
-				'type'              => 'text',
-				'sanitize_callback' => 'wp_kses_post',
-				'default'           => esc_html__( 'Neurology', 'medzone-lite' ),
-			),
-			'specialties_icon'        => array(
-				'label'   => esc_html__( 'Specialty Icon', 'medzone-lite' ),
+		'fields' => array(
+			'featured_icon'        => array(
+				'label'   => esc_html__( 'Icon', 'unapp' ),
 				'type'    => 'epsilon-icon-picker',
-				'default' => 'fa fa-stethoscope',
+				'default' => 'fa fa-users',
 			),
-			'specialties_description' => array(
-				'label'             => esc_html__( 'Specialty description', 'medzone-lite' ),
+			'featured_description' => array(
+				'label' => esc_html__( 'Description', 'unapp' ),
+				'type' => 'epsilon-text-editor',
+				'sanitize_callback' => 'wp_kses_post',
+				'default' => 'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.',
+			),
+		),
+	)
+);
+
+/**
+ * Featured Right
+ */
+Epsilon_Customizer::add_field(
+	'unapp_featured_right',
+	array(
+		'type'          => 'epsilon-repeater',
+		'section'       => 'unapp_featured_section_right',
+		'save_as_meta'  => Epsilon_Content_Backup::get_instance()->setting_page,
+		'label'         => esc_html__( 'Featured Work', 'unapp' ),
+		'button_label'  => esc_html__( 'Add new items', 'unapp' ),
+		'row_label'     => array(
+			'type'  => 'field',
+			'field' => 'featured_icon'
+		),
+		'fields' => array(
+			'featured_icon'        => array(
+				'label'   => esc_html__( 'Icon', 'unapp' ),
+				'type'    => 'epsilon-icon-picker',
+				'default' => 'fa fa-users',
+			),
+			'featured_description' => array(
+				'label' => esc_html__( 'Description', 'unapp' ),
+				'type' => 'epsilon-text-editor',
+				'sanitize_callback' => 'wp_kses_post',
+				'default' => 'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.',
+			),
+		),
+	)
+);
+
+/*
+ * Unapp Counter
+ */
+Epsilon_Customizer::add_field(
+	'unapp_counter',
+	array(
+		'type'          => 'epsilon-repeater',
+		'section'       => 'unapp_counter_section',
+		'transport'           => 'postMessage',
+		'save_as_meta'  => Epsilon_Content_Backup::get_instance()->setting_page,
+		'label'         => esc_html__( 'Featured Work', 'unapp' ),
+		'button_label'  => esc_html__( 'Add new items', 'unapp' ),
+		'row_label'     => array(
+			'type'  => 'field',
+			'field' => 'counter_title'
+		),
+		'fields' => array(
+			'counter_title'        => array(
+				'label'             => esc_html__( 'Title', 'unapp' ),
+				'type'              => 'text',
+				'sanitize_callback' => 'wp_kses_post',
+				'default'           => '1500',
+			),
+			'counter_description' => array(
+				'label' => esc_html__( 'Description', 'unapp' ),
+				'type' => 'epsilon-text-editor',
+				'sanitize_callback' => 'wp_kses_post',
+				'default' => 'Of customers are satisfied with our professional support',
+			),
+			'counter_animate'  => array(
+				'label' => esc_html__( 'Animate', 'unapp' ),
+				'type' => 'select',
+				'choices' => array(
+					'fadeIn' => esc_html__( 'fadeIn', 'unapp' ),
+					'fadeInLeft' => esc_html__( 'fadeInLeft', 'unapp' ),
+					'fadeInRight' => esc_html__( 'fadeInRight', 'unapp' ),
+					'fadeInUp' => esc_html__( 'fadeInUp', 'unapp' ),
+				),
+			),
+		)
+	)
+);
+
+/**
+ * Unapp Pricing
+ */
+Epsilon_Customizer::add_field(
+	'unapp_pricing',
+	array(
+		'type'         => 'epsilon-repeater',
+		'section'      => 'unapp_pricing_section',
+		'save_as_meta' => Epsilon_Content_Backup::get_instance()->setting_page,
+		'label'        => esc_html__( 'Price Boxes', 'unapp' ),
+		'button_label' => esc_html__( 'Add new price box', 'unapp' ),
+		'row_label'    => array(
+			'type'  => 'field',
+			'field' => 'price_box_title',
+		),
+		'fields'       => array(
+			'price_box_title'    => array(
+				'label'             => esc_html__( 'Name', 'unapp' ),
+				'type'              => 'text',
+				'default'           => esc_html__( 'Standard', 'unapp' ),
+				'sanitize_callback' => 'wp_kses_post',
+			),
+			'price_box_currency' => array(
+				'label'   => esc_html__( 'Currency', 'unapp' ),
+				'type'    => 'text',
+				'default' => '$',
+			),
+			'price_box_price'    => array(
+				'label'   => esc_html__( 'Price', 'unapp' ),
+				'type'    => 'text',
+				'default' => '59',
+			),
+			'price_box_period'   => array(
+				'label'   => esc_html__( 'Period', 'unapp' ),
+				'type'    => 'text',
+				'default' => 'month',
+			),
+			'price_btn_text'     => array(
+				'label'             => esc_html__( 'Button Text', 'unapp' ),
+				'type'              => 'text',
+				'default'           => esc_html__( 'Get started', 'unapp' ),
+				'sanitize_callback' => 'wp_kses_post',
+			),
+			'price_box_url'      => array(
+				'label'             => esc_html__( 'Button URL', 'unapp' ),
+				'type'              => 'text',
+				'default'           => '#',
+				'sanitize_callback' => 'wp_kses_post',
+			),
+			'price_box_features' => array(
+				'label'             => esc_html__( 'Features', 'unapp' ),
 				'type'              => 'epsilon-text-editor',
+				'default'           => esc_html__( 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', 'unapp' ),
 				'sanitize_callback' => 'wp_kses_post',
-				'default'           => esc_html__( 'Outside of a medical emergency, your primary care physician is the "first responder" to your healthcare needs.', 'medzone-lite' ),
+			),
+			'pricing_animate'  => array(
+				'label' => esc_html__( 'Animate', 'unapp' ),
+				'type' => 'select',
+				'choices' => array(
+					'fadeIn' => esc_html__( 'fadeIn', 'unapp' ),
+					'fadeInLeft' => esc_html__( 'fadeInLeft', 'unapp' ),
+					'fadeInRight' => esc_html__( 'fadeInRight', 'unapp' ),
+					'fadeInUp' => esc_html__( 'fadeInUp', 'unapp' ),
+				),
 			),
 		),
 	)
 );
 
 /**
- * Hospital Schedule
+ * Unapp Team Members
  */
 Epsilon_Customizer::add_field(
-	'medzone_lite_hospital_schedule',
+	'unapp_team_members',
 	array(
 		'type'         => 'epsilon-repeater',
-		'section'      => 'medzone_lite_hospital_schedule_section',
+		'section'      => 'unapp_team_members_section',
 		'save_as_meta' => Epsilon_Content_Backup::get_instance()->setting_page,
-		'label'        => esc_html__( 'Schedule', 'medzone-lite' ),
-		'button_label' => esc_html__( 'Add new entries', 'medzone-lite' ),
+		'label'        => esc_html__( 'Team Members', 'unapp' ),
+		'button_label' => esc_html__( 'Add new member', 'unapp' ),
 		'row_label'    => array(
 			'type'  => 'field',
-			'field' => 'schedule_days',
+			'field' => 'member_title',
 		),
 		'fields'       => array(
-			'schedule_days'  => array(
-				'label'             => esc_html__( 'Days', 'medzone-lite' ),
-				'description'       => esc_html__( 'e.g. Monday - Thursday', 'medzone-lite' ),
+			'member_title'            => array(
+				'label'             => esc_html__( 'Name', 'unapp' ),
 				'type'              => 'text',
+				'default'           => esc_html__( 'James Austin', 'unapp' ),
 				'sanitize_callback' => 'wp_kses_post',
 			),
-			'schedule_hours' => array(
-				'label'             => esc_html__( 'Hours', 'medzone-lite' ),
-				'description'       => esc_html__( 'e.g. 9:30 am – 8:30 pm', 'medzone-lite' ),
+			'member_designation'            => array(
+				'label'             => esc_html__( 'Designation', 'unapp' ),
 				'type'              => 'text',
+				'default'           => esc_html__( 'Developer', 'unapp' ),
 				'sanitize_callback' => 'wp_kses_post',
 			),
-		),
-	)
-);
-
-/**
- * Testimonials
- */
-Epsilon_Customizer::add_field(
-	'medzone_lite_testimonials',
-	array(
-		'type'         => 'epsilon-repeater',
-		'section'      => 'medzone_lite_testimonials_section',
-		'save_as_meta' => Epsilon_Content_Backup::get_instance()->setting_page,
-		'label'        => esc_html__( 'Testimonials', 'medzone-lite' ),
-		'button_label' => esc_html__( 'Add new entries', 'medzone-lite' ),
-		'row_label'    => array(
-			'type'  => 'field',
-			'field' => 'testimonial_title',
-		),
-		'fields'       => array(
-			'testimonial_title'    => array(
-				'label'   => esc_html__( 'Title', 'medzone-lite' ),
-				'type'    => 'text',
-				'default' => '',
-			),
-			'testimonial_subtitle' => array(
-				'label'   => esc_html__( 'Subtitle', 'medzone-lite' ),
-				'type'    => 'text',
-				'default' => '',
-			),
-			'testimonial_text'     => array(
-				'label'   => esc_html__( 'Text', 'medzone-lite' ),
+			'member_text'             => array(
+				'label'   => esc_html__( 'Text', 'unapp' ),
 				'type'    => 'epsilon-text-editor',
-				'default' => '',
+				'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia velit quis sem dignissim porta.', 'unapp' ),
 			),
-			'testimonial_image'    => array(
-				'label'   => esc_html__( 'Portrait', 'medzone-lite' ),
+			'member_image'            => array(
+				'label'   => esc_html__( 'Portrait', 'unapp' ),
 				'type'    => 'epsilon-image',
-				'size'    => 'medzone-testimonial-portrait',
-				'default' => '',
+				'size'    => 'unapp-team-image',
+				'default' => esc_url( get_template_directory_uri() . '/assets/images/person4.jpg' ),
+			),
+			'member_social_facebook'  => array(
+				'label'   => esc_html__( 'Facebook', 'unapp' ),
+				'type'    => 'url',
+				'default' => 'https://facebook.com',
+			),
+			'member_social_twitter'   => array(
+				'label'   => esc_html__( 'Twitter', 'unapp' ),
+				'type'    => 'url',
+				'default' => 'https://twitter.com',
+			),
+			'member_social_pinterest' => array(
+				'label'   => esc_html__( 'Pinterest', 'unapp' ),
+				'type'    => 'url',
+				'default' => 'https://pinterest.com',
+			),
+			'member_social_linkedin'  => array(
+				'label'   => esc_html__( 'LinkedIn', 'unapp' ),
+				'type'    => 'url',
+				'default' => 'https://linkedin.com',
+			),
+			'member_animate'  => array(
+				'label' => esc_html__( 'Animate', 'unapp' ),
+				'type' => 'select',
+				'choices' => array(
+					'fadeIn' => esc_html__( 'fadeIn', 'unapp' ),
+					'fadeInLeft' => esc_html__( 'fadeInLeft', 'unapp' ),
+					'fadeInRight' => esc_html__( 'fadeInRight', 'unapp' ),
+					'fadeInUp' => esc_html__( 'fadeInUp', 'unapp' ),
+				),
 			),
 		),
 	)
 );
 
-
-Epsilon_Customizer::add_field(
-	'medzone_lite_slides',
-	array(
-		'type'         => 'epsilon-repeater',
-		'section'      => 'medzone_lite_slides_section',
-		'save_as_meta' => Epsilon_Content_Backup::get_instance()->setting_page,
-		'label'        => esc_html__( 'Slides', 'medzone-lite' ),
-		'button_label' => esc_html__( 'Add new slides', 'medzone-lite' ),
-		'row_label'    => array(
-			'type'  => 'field',
-			'field' => 'slide_cta',
-		),
-		'fields'       => array(
-			'slide_cta'                => array(
-				'label'             => esc_html__( 'Call to action', 'medzone-lite' ),
-				'type'              => 'epsilon-text-editor',
-				'sanitize_callback' => 'wp_kses_post',
-				'default'           => esc_html__( 'Best Medical Care you can get for you and your family.', 'medzone-lite' ),
-			),
-			'slide_small'              => array(
-				'label'             => esc_html__( 'Call to action subtext', 'medzone-lite' ),
-				'type'              => 'epsilon-text-editor',
-				'sanitize_callback' => 'wp_kses_post',
-				'default'           => esc_html__( 'More than 3000 specialists are here for you', 'medzone-lite' ),
-			),
-			'slide_background_color' => array(
-				'label'      => esc_html__( 'Background color', 'medzone-lite' ),
-				'type'       => 'epsilon-color-picker',
-				'defaultVal' => '#f9f9fa',
-				'default'    => '#f9f9fa',
-			),
-			'slide_background'         => array(
-				'label' => esc_html__( 'Background image', 'medzone-lite' ),
-				'type'  => 'epsilon-image',
-			),
-			'slide_alignment'          => array(
-				'type'      => 'epsilon-button-group',
-				'label'     => __( 'Alignment', 'epsilon-framework' ),
-				'group'     => 'layout',
-				'groupType' => 'three',
-				'choices'   => array(
-					'left'   => array(
-						'icon'  => 'dashicons-editor-alignleft',
-						'value' => 'left',
-					),
-					'center' => array(
-						'icon'  => 'dashicons-editor-aligncenter',
-						'value' => 'center',
-					),
-					'right'  => array(
-						'icon'  => 'dashicons-editor-alignright',
-						'value' => 'right',
-					),
-				),
-				'default'   => 'center',
-			),
-			'slide_vertical_alignment' => array(
-				'type'      => 'epsilon-button-group',
-				'label'     => __( 'Vertical Alignment', 'epsilon-framework' ),
-				'group'     => 'layout',
-				'groupType' => 'three',
-				'choices'   => array(
-					'top'    => array(
-						'value' => 'alignbottom',
-						'png'   => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/epsilon-section-alignbottom.png',
-					),
-					'middle' => array(
-						'value' => 'alignmiddle',
-						'png'   => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/epsilon-section-alignmiddle.png',
-					),
-					'bottom' => array(
-						'value' => 'aligntop',
-						'png'   => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/epsilon-section-aligntop.png',
-					),
-				),
-				'default'   => 'alignmiddle',
-			),
-		),
-	)
-);
 
 /**
  * Repeatable sections
@@ -579,11 +570,40 @@ Epsilon_Customizer::add_field(
 	'medzone_lite_frontpage_sections',
 	array(
 		'type'                => 'epsilon-section-repeater',
-		'label'               => esc_html__( 'Sections', 'medzone-lite' ),
-		'section'             => 'medzone_lite_repeatable_section',
+		'label'               => esc_html__( 'Sections', 'unapp' ),
+		'section'             => 'unapp_repeatable_section',
 		'selective_refresh'   => true,
 		'page_builder'        => true,
 		'transport'           => 'postMessage',
-		'repeatable_sections' => MedZone_Lite_Repeatable_Sections::get_instance()->sections,
+		'repeatable_sections' => Unapp_Repeatable_Sections::get_instance()->sections,
 	)
 );
+
+/**
+ * Section builder page changer ( acts as a menu )
+ */
+Epsilon_Customizer::add_field(
+	'unapp_page_changer',
+	array(
+		'type'     => 'epsilon-page-changer',
+		'label'    => esc_html__( 'Available pages', 'unapp' ),
+		'section'  => 'unapp_repeatable_section',
+		'priority' => 0,
+	)
+);
+
+/**
+ * Logo dimensions
+ */
+Epsilon_Customizer::add_field(
+	'unapp_logo_dimensions',
+	array(
+		'type'           => 'epsilon-image-dimensions',
+		'label'          => esc_html__( 'Logo Dimensions', 'unapp' ),
+		'linked_control' => 'custom_logo',
+		'section'        => 'title_tagline',
+		'priority'       => 1,
+	)
+);
+
+

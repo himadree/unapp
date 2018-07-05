@@ -11,9 +11,9 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Class MedZone_Lite_Helper
+ * Class Unapp_Helper
  */
-class MedZone_Lite_Helper {
+class Unapp_Helper {
 	/**
 	 * Create a "default" value for the footer layout
 	 */
@@ -72,10 +72,10 @@ class MedZone_Lite_Helper {
 	 * @return array|mixed|object|string
 	 */
 	public static function get_layout( $option = '' ) {
-		$layout = empty( $option ) ? get_theme_mod( 'medzone_lite_layout', false ) : get_theme_mod( $option, false );
+		$layout = empty( $option ) ? get_theme_mod( 'unapp_layout', false ) : get_theme_mod( $option, false );
 
 		if ( ! $layout ) {
-			$layout = MedZone_Lite_Helper::get_blog_default();
+			$layout = Unapp_Helper::get_blog_default();
 		}
 
 		if ( ! is_array( $layout ) ) {
@@ -113,7 +113,7 @@ class MedZone_Lite_Helper {
 	public static function get_footer_layout() {
 		$footer_layout = get_theme_mod( 'medzone_lite_footer_columns', false );
 		if ( ! $footer_layout ) {
-			$footer_layout = MedZone_Lite_Helper::get_footer_default();
+			$footer_layout = Unapp_Helper::get_footer_default();
 		}
 		if ( ! is_array( $footer_layout ) ) {
 			$footer_layout = json_decode( $footer_layout, true );
@@ -132,7 +132,7 @@ class MedZone_Lite_Helper {
 
 		switch ( $element ) {
 			case 'author':
-				$html = '<span class="byline">' . esc_html_e( 'by', 'medzone-lite' );
+				$html = '<span class="byline">' . esc_html_e( 'by', 'unapp' );
 				$html .= '<a class="post-author" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a>';
 				$html .= '</span>';
 
@@ -146,7 +146,7 @@ class MedZone_Lite_Helper {
 				echo wp_kses_post( $html );
 				break;
 			case 'comments':
-				echo ' <span class="comments-link"><a title="' . esc_attr__( 'Comment on Post', 'medzone-lite' ) . '" href="' . esc_url( get_the_permalink( get_the_ID() ) ) . '#comments">' . esc_html( $comments->approved ) . '</a></span>';
+				echo ' <span class="comments-link"><a title="' . esc_attr__( 'Comment on Post', 'unapp' ) . '" href="' . esc_url( get_the_permalink( get_the_ID() ) ) . '#comments">' . esc_html( $comments->approved ) . '</a></span>';
 				break;
 			case 'tags':
 				$html = '<div class="tags-links">';
@@ -161,6 +161,38 @@ class MedZone_Lite_Helper {
 	}
 
 	/**
+	 * Generates the section title properly formatted
+	 *
+	 * @param string $subtitle
+	 * @param string $title
+	 * @param array  $args
+	 *
+	 * @return string;
+	 */
+	public static function generate_section_title(
+		$title = '',
+		$subtitle = '',
+		$args = array(
+			'center'  		=> false,
+		)
+	) {
+		$class = 'colorlib-heading';
+		if ( $args['center'] ) {
+			$class .= ' text-center';
+		}
+		$html = '<div class="' . $class . '">';
+		if ( ! empty( $title ) ) {
+			$html .= '<h2>' . $title . '</h2>';
+		}
+		if ( ! empty( $subtitle ) ) {
+			$html .= '<p>' . $subtitle . '</p>';
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
+
+	/**
 	 * Retrieve values saved in another customizer field
 	 *
 	 * @param string $field  Repeater field.
@@ -171,7 +203,7 @@ class MedZone_Lite_Helper {
 	public static function get_group_values( $field = '', $filter = '' ) {
 		$groups = get_theme_mod( $field, array() );
 		$arr    = array(
-			'all' => esc_html__( 'All', 'medzone-lite' ),
+			'all' => esc_html__( 'All', 'unapp' ),
 		);
 
 		if ( empty( $groups ) ) {
@@ -198,7 +230,7 @@ class MedZone_Lite_Helper {
 	public static function get_group_values_from_meta( $key = '', $filter = '' ) {
 		$data = get_post_meta( Epsilon_Content_Backup::get_instance()->setting_page, $key, true );
 		$arr  = array(
-			'all' => esc_html__( 'All', 'medzone-lite' ),
+			'all' => esc_html__( 'All', 'unapp' ),
 		);
 
 		if ( empty( $data ) ) {
@@ -246,13 +278,37 @@ class MedZone_Lite_Helper {
 	}
 
 	/**
+	 * Returns the class of the container
+	 *
+	 * @param $key
+	 *
+	 * @return string
+	 */
+	public static function container_class( $key, $fields ) {
+		$class = array(
+			'boxedin'     => 'container',
+			'boxedcenter' => 'container container-boxedcenter',
+			'fullwidth'   => '', // container-fluid
+		);
+
+		if ( ! empty( $fields[ $key . '_column_stretch' ] ) ) {
+			return isset( $class[ $fields[ $key . '_column_stretch' ] ] ) ? $class[ $fields[ $key . '_column_stretch' ] ] : 'container';
+		}
+
+		return 'container';
+	}
+
+	/**
 	 * Generate an edit shortcut for the frontend sections
 	 */
-	public static function generate_pencil() {
+	public static function generate_pencil( $class_name = '', $section_type = '' ) {
 		if ( is_customize_preview() ) {
 			return '<a href="#" class="epsilon-section-editor"><span class="dashicons dashicons-edit"></span></a>';
 		}
 
 		return '';
 	}
+//	public static function generate_pencil( $class_name = '', $section_type = '' ) {
+//		return Epsilon_Helper::generate_pencil( $class_name, $section_type );
+//	}
 }

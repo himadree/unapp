@@ -2,7 +2,7 @@
 <footer id="colorlib-footer">
 	<div class="container">
 		<div class="row row-pb-md">
-			<?php dynamic_sidebar( 'footer-1' ); ?>
+			<?php get_sidebar( 'footer' ); ?>
 		</div>
 	</div>
 </footer>

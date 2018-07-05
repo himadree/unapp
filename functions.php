@@ -147,11 +147,44 @@ function unapp_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer', 'unapp' ),
-			'id'            => 'footer-1',
+			'name'          => esc_html__( 'Footer One', 'unapp' ),
+			'id'            => 'footer-sidebar-1',
 			'description'   => esc_html__( 'Add widgets here to appear in your sidebar.', 'unapp' ),
-			'before_widget' => '<div class="col-md-4 colorlib-widget"><article id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</article></div>',
+			'before_widget' => '<article id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</article>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Two', 'unapp' ),
+			'id'            => 'footer-sidebar-2',
+			'description'   => esc_html__( 'Add widgets here to appear in your sidebar.', 'unapp' ),
+			'before_widget' => '<article id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</article>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Three', 'unapp' ),
+			'id'            => 'footer-sidebar-3',
+			'description'   => esc_html__( 'Add widgets here to appear in your sidebar.', 'unapp' ),
+			'before_widget' => '<article id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</article>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Four', 'unapp' ),
+			'id'            => 'footer-sidebar-4',
+			'description'   => esc_html__( 'Add widgets here to appear in your sidebar.', 'unapp' ),
+			'before_widget' => '<article id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</article>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		)
@@ -210,10 +243,12 @@ function unapp_scripts() {
 	// Theme main JS
 	wp_enqueue_script( 'unapp-main', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), false, true );
 	// Google Map API Js
-	$api_key = get_theme_mod('contact_map_api','AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA');
-	if($api_key != '') {
-		wp_enqueue_script('unapp-map_api', 'http://maps.googleapis.com/maps/api/js?key='.$api_key, array('jquery'),false,true );
-		wp_enqueue_script( 'unapp-map', get_template_directory_uri() . '/assets/js/map.js', array( 'jquery' ), false, true );
+	if( is_page() ){
+		$api_key = get_theme_mod('contact_map_api','AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA');
+		if($api_key != '') {
+			wp_enqueue_script('unapp-map_api', 'http://maps.googleapis.com/maps/api/js?key='.$api_key, array('jquery'),false,true );
+			wp_enqueue_script( 'unapp-map', get_template_directory_uri() . '/assets/js/map.js', array( 'jquery' ), false, true );
+		}
 	}
 	// reply comments
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

@@ -19,7 +19,7 @@ if ( 'posts' === $show_on_front ) :
 	$img = get_custom_header();
 	$img       = $img->url;
 
-	$layout = MedZone_Lite_Helper::get_layout();
+	$layout = Unapp_Helper::get_layout();
 	?>
 	<div id="content">
 		<!-- /// CONTENT  /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->

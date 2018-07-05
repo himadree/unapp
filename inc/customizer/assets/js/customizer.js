@@ -157,22 +157,34 @@ wp.customize.bind( 'ready', function() {
    * @type {{medzone_lite_doctors: {field: string, filter: string}, medzone_lite_specialties: {field: string, filter: string}, medzone_lite_about_info: {field: string, filter: string}}}
    */
   var obj = {
-    'medzone_lite_doctors': {
-      field: 'doctors_group',
-      filter: 'doctor_name'
+    'unapp_slides': {
+        field: 'slider_grouping',
+        filter: 'slides_title'
     },
-    'medzone_lite_specialties': {
-      field: 'specialties_grouping',
-      filter: 'specialties_title'
+    'unapp_services': {
+        field: 'services_grouping',
+        filter: 'service_title'
     },
-    'medzone_lite_about_info': {
-      field: 'about_grouping',
-      filter: 'info_title'
+    'unapp_featured_left': {
+        field: 'featured_grouping',
+        filter: 'featured_icon'
     },
-    'medzone_lite_testimonials': {
-      field: 'testimonials_grouping',
-      filter: 'testimonial_title'
+    'unapp_featured_right': {
+        field: 'featured_grouping',
+        filter: 'featured_icon'
     },
+    'unapp_counter': {
+        field: 'counter_grouping',
+        filter: 'counter_title'
+    },
+    'unapp_pricing': {
+        field: 'pricing_grouping',
+        filter: 'price_box_title'
+    },
+    'unapp_team_members': {
+        field: 'team_grouping',
+        filter: 'member_title'
+    }
   };
   /**
    *

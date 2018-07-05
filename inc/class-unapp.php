@@ -116,21 +116,21 @@ class Unapp {
 	 *
 	 */
 	public function init_nav_menus() {
-		//new Epsilon_Section_Navigation_Menu( 'unapp_frontpage_sections_' );
+		//new Epsilon_Section_Navigation_Menu( 'medzone_lite_frontpage_sections_' );
 	}
 
 	/**
 	 * Initiate the setting helper
 	 */
 	public function customize_register_init() {
-		new MedZone_Lite_Customizer();
+		new Unapp_Customizer();
 	}
 
 	/**
 	 * Customizer styles ( from repeater )
 	 */
 	public function customizer_styles() {
-		//new Epsilon_Section_Styling( 'unapp-main', 'unapp_frontpage_sections_', Unapp_Repeatable_Sections::get_instance() );
+		//new Epsilon_Section_Styling( 'unapp-main', 'medzone_lite_frontpage_sections_', Unapp_Repeatable_Sections::get_instance() );
 	}
 
 	/**
@@ -334,10 +334,10 @@ class Unapp {
 
 		$args = array(
 			'fields' => $this->get_color_scheme(),
-			//'css' => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/assets/css/style-overrides.css' ),
+			'css' => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/assets/css/style-overrides.css' ),
 		);
 
-		//Epsilon_Color_Scheme::get_instance( $handler, $args );
+		Epsilon_Color_Scheme::get_instance( $handler, $args );
 	}
 
 	/**

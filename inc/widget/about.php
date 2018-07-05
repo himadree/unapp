@@ -27,7 +27,7 @@ class Unapp_About_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		//echo $args['before_widget'];
 		?>
-		<div class="col-md-4 colorlib-widget">
+		<div class="sidebar-widget">
 			<h4><?php print $instance[ 'title' ]; ?></h4>
 			<p><?php print $instance[ 'description' ]; ?></p>
             <ul class="colorlib-social-icons">

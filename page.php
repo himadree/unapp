@@ -2,89 +2,58 @@
 /**
  * The template for displaying pages
  *
- * @package MedZone_Lite
+ * @package unapp
  */
 
 get_header();
-$img = get_custom_header();
-$img = $img->url;
 
-$layout     = MedZone_Lite_Helper::get_layout( 'medzone_lite_page_layout' );
-$medzone_lite_fp = Epsilon_Page_Generator::get_instance( 'medzone_lite_frontpage_sections_' . get_the_ID(), get_the_ID() );
-if ( ! empty( $medzone_lite_fp->sections ) ) :
-	$medzone_lite_fp->generate_output();
+unapp_page_header();
+?>
+<?php
+$layout = Unapp_Helper::get_layout( 'unapp_page_layout' );
+$unapp_fp = Epsilon_Page_Generator::get_instance( 'medzone_lite_frontpage_sections_' . get_the_ID(), get_the_ID() );
+
+if ( ! empty( $unapp_fp->sections ) ) :
+	$unapp_fp->generate_output();
 else :
 	?>
-	<div id="content">
-		<!-- /// CONTENT  /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-		<div id="page-header" <?php echo ( ! empty( $img ) ) ? 'style="background-image:url(' . esc_url( $img ) . '"' : ''; ?>>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h2><?php echo esc_html( get_the_title( absint( get_the_ID() ) ) ); ?></h2>
+    <div class="colorlib-blog">
+        <div class="container">
+            <div class="row">
+				<?php if ( 'left-sidebar' === $layout['type'] && is_active_sidebar( 'sidebar-1' ) ) { ?>
+                    <div class="col-sm-<?php echo esc_attr( $layout['columns']['sidebar']['span'] ); ?> animate-box">
+						<?php get_sidebar(); ?>
+                    </div>
+				<?php } ?>
+                <div class="<?php echo ( 1 === $layout['columnsCount'] && ! is_active_sidebar( 'sidebar' ) ) ? 'col-sm-12' : 'col-sm-' . esc_attr( $layout['columns']['content']['span'] ); ?> animate-box">
+                    <!-- MAIN CONTENT -->
+                    <div class="page-content">
 						<?php
-						$display = get_bloginfo( 'description', 'display' );
-						if ( ! empty( $display ) ) :
-							?>
-							<p>
-								<span class="text-accent-color"><?php echo wp_kses_post( $display ); /* WPCS: xss ok. */ ?></span>
-							</p>
-							<?php
-						endif;
-						?>
-					</div><!-- end .col -->
-				</div><!-- end .row -->
-			</div><!-- end .container -->
-		</div><!-- end #page-header -->
-
-		<div class="container">
-			<div class="row">
-				<?php
-				if ( 'left-sidebar' === $layout['type'] && is_active_sidebar( 'sidebar' ) ) {
-					?>
-					<div class="col-sm-<?php echo esc_attr( $layout['columns']['sidebar']['span'] ); ?>">
-						<!-- /// SIDEBAR CONTENT  /////////////////////////////////////////////////////////////////////////////////// -->
-						<?php dynamic_sidebar( 'sidebar' ); ?>
-						<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-					</div>
-					<?php
-				}
-				?>
-
-				<div class="<?php echo ( 1 === $layout['columnsCount'] && ! is_active_sidebar( 'sidebar' ) ) ? 'col-sm-12' : 'col-sm-' . esc_attr( $layout['columns']['content']['span'] ); ?>">
-					<!-- /// MAIN CONTENT  ////////////////////////////////////////////////////////////////////////////////////// -->
-					<?php
-					if ( have_posts() ) :
-						while ( have_posts() ) :
-							the_post();
-							get_template_part( 'template-parts/content/content', 'page' );
+						while (have_posts()) : the_post();
+							get_template_part( 'template-parts/content', 'page' );
 						endwhile;
-					endif;
-					?>
-					<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-				</div>
-
-				<?php
-				if ( 'right-sidebar' === $layout['type'] && is_active_sidebar( 'sidebar' ) ) {
-					?>
-					<div class="col-sm-<?php echo esc_attr( $layout['columns']['sidebar']['span'] ); ?>">
-						<!-- /// SIDEBAR CONTENT  /////////////////////////////////////////////////////////////////////////////////// -->
-						<?php dynamic_sidebar( 'sidebar' ); ?>
-						<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-					</div>
+						?>
+                    </div>
 					<?php
-				}
-				?>
-			</div>
-		</div>
-
-		<?php
-		if ( comments_open( get_the_ID() ) || get_comments_number( get_the_ID() ) ) :
-			comments_template();
-		endif;
-		?>
-	</div>
-	<?php
+					wp_link_pages( array(
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'unapp' ),
+						'after'  => '</div>',
+					) );
+					?>
+					<?php
+					if ( comments_open() || get_comments_number() ) {
+						comments_template();
+					}
+					?>
+                </div>
+				<?php if ( 'right-sidebar' === $layout['type'] && is_active_sidebar( 'sidebar-1' ) ) { ?>
+                    <div class="col-sm-<?php echo esc_attr( $layout['columns']['sidebar']['span'] ); ?> animate-box">
+						<?php get_sidebar(); ?>
+                    </div>
+				<?php } ?>
+            </div>
+        </div>
+    </div>
+<?php
 endif;
-
 get_footer();

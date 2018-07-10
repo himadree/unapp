@@ -89,8 +89,10 @@ if ( 'posts' === $show_on_front ) :
 	</div>
 <?php
 else :
-	$medzone_lite_fp = Epsilon_Page_Generator::get_instance( 'unapp_frontpage_sections_' . get_the_ID(), get_the_ID() );
-	$medzone_lite_fp->generate_output();
+    if( class_exists( 'Epsilon_Page_Generator' ) ){
+	    $medzone_lite_fp = Epsilon_Page_Generator::get_instance( 'unapp_frontpage_sections_' . get_the_ID(), get_the_ID() );
+	    $medzone_lite_fp->generate_output();
+    }
 endif;
 
 get_footer();

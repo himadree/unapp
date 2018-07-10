@@ -11,7 +11,9 @@ unapp_page_header();
 ?>
 <?php
 $layout = Unapp_Helper::get_layout( 'unapp_page_layout' );
-$unapp_fp = Epsilon_Page_Generator::get_instance( 'unapp_frontpage_sections_' . get_the_ID(), get_the_ID() );
+if( class_exists( 'Epsilon_Page_Generator' ) ){
+	$unapp_fp = Epsilon_Page_Generator::get_instance( 'unapp_frontpage_sections_' . get_the_ID(), get_the_ID() );
+}
 
 if ( ! empty( $unapp_fp->sections ) ) :
 	$unapp_fp->generate_output();

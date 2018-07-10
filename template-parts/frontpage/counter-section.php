@@ -1,10 +1,9 @@
 <?php
-$frontpage          = Epsilon_Page_Generator::get_instance( 'medzone_lite_frontpage_sections_' . get_the_ID(), get_the_ID() );
+$frontpage          = Epsilon_Page_Generator::get_instance( 'unapp_frontpage_sections_' . get_the_ID(), get_the_ID() );
 $fields             = $frontpage->sections[ $section_id ];
 
 $grouping           = array( 'values'   => $fields['counter_grouping'], 'group_by' => 'counter_title');
 $fields['counter'] = $frontpage->get_repeater_field( $fields['counter_repeater_field'], array(), $grouping );
-
 $attr_helper = new Epsilon_Section_Attr_Helper( $fields, 'counter', Unapp_Repeatable_Sections::get_instance() );
 
 $parent_attr = array(

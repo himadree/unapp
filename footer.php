@@ -1,4 +1,4 @@
-<?php if( is_active_sidebar( 'footer-1' ) ) {?>
+
 <footer id="colorlib-footer">
 	<div class="container">
 		<div class="row row-pb-md">
@@ -6,7 +6,6 @@
 		</div>
 	</div>
 </footer>
-<?php } ?>
 
 <?php if( get_theme_mod( 'unapp_enable_footer_copyright', 'true' ) ) { ?>
     <div class="copy">

@@ -1,7 +1,6 @@
 <?php
-$frontpage          = Epsilon_Page_Generator::get_instance( 'medzone_lite_frontpage_sections_' . get_the_ID(), get_the_ID() );
+$frontpage          = Epsilon_Page_Generator::get_instance( 'unapp_frontpage_sections_' . get_the_ID(), get_the_ID() );
 $fields             = $frontpage->sections[ $section_id ];
-
 $grouping           = array( 'values'   => $fields['slider_grouping'], 'group_by' => 'slides_title');
 $fields['slider'] = $frontpage->get_repeater_field( $fields['slider_repeater_field'], array(), $grouping );
 

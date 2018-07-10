@@ -21,8 +21,8 @@ if ( 'posts' === $show_on_front ) :
 
 	$layout = Unapp_Helper::get_layout();
 	?>
+<h1>This is front page</h1>
 	<div id="content">
-		<!-- /// CONTENT  /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 		<div id="page-header" <?php echo ( ! empty( $img ) ) ? 'style="background-image:url(' . esc_url( $img ) . '"' : ''; ?>>
 			<div class="container">
 				<div class="row">
@@ -49,16 +49,13 @@ if ( 'posts' === $show_on_front ) :
 				if ( 'left-sidebar' === $layout['type'] && is_active_sidebar( 'sidebar' ) ) {
 					?>
 					<div class="col-sm-<?php echo esc_attr( $layout['columns']['sidebar']['span'] ); ?>">
-						<!-- /// SIDEBAR CONTENT  /////////////////////////////////////////////////////////////////////////////////// -->
 						<?php dynamic_sidebar( 'sidebar' ); ?>
-						<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 					</div>
 					<?php
 				}
 				?>
 
 				<div class="<?php echo ( 1 === $layout['columnsCount'] && ! is_active_sidebar( 'sidebar' ) ) ? 'col-sm-12' : 'col-sm-' . esc_attr( $layout['columns']['content']['span'] ); ?>">
-					<!-- /// MAIN CONTENT  ////////////////////////////////////////////////////////////////////////////////////// -->
 					<?php
 					if ( have_posts() ) :
 
@@ -71,21 +68,18 @@ if ( 'posts' === $show_on_front ) :
 
 					the_posts_pagination(
 						array(
-							'prev_text' => '<span class="fa fa-angle-left"></span><span class="screen-reader-text">' . esc_html__( 'Previous', 'medzone-lite' ) . '</span>',
-							'next_text' => '<span class="fa fa-angle-right"></span><span class="screen-reader-text">' . esc_html__( 'Next', 'medzone-lite' ) . '</span>',
+							'prev_text' => '<span class="fa fa-angle-left"></span><span class="screen-reader-text">' . esc_html__( 'Previous', 'unapp' ) . '</span>',
+							'next_text' => '<span class="fa fa-angle-right"></span><span class="screen-reader-text">' . esc_html__( 'Next', 'unapp' ) . '</span>',
 						)
 					);
 					?>
-					<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 				</div>
 
 				<?php
 				if ( 'right-sidebar' === $layout['type'] && is_active_sidebar( 'sidebar' ) ) {
 					?>
 					<div class="col-sm-<?php echo esc_attr( $layout['columns']['sidebar']['span'] ); ?>">
-						<!-- /// SIDEBAR CONTENT  /////////////////////////////////////////////////////////////////////////////////// -->
 						<?php dynamic_sidebar( 'sidebar' ); ?>
-						<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 					</div>
 					<?php
 				}
@@ -95,7 +89,7 @@ if ( 'posts' === $show_on_front ) :
 	</div>
 <?php
 else :
-	$medzone_lite_fp = Epsilon_Page_Generator::get_instance( 'medzone_lite_frontpage_sections_' . get_the_ID(), get_the_ID() );
+	$medzone_lite_fp = Epsilon_Page_Generator::get_instance( 'unapp_frontpage_sections_' . get_the_ID(), get_the_ID() );
 	$medzone_lite_fp->generate_output();
 endif;
 

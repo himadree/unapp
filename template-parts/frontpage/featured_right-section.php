@@ -4,7 +4,6 @@ $fields             = $frontpage->sections[ $section_id ];
 
 $grouping           = array( 'values'   => $fields['featured_grouping'], 'group_by' => 'featured_icon');
 $fields['featured_right'] = $frontpage->get_repeater_field( $fields['featured_repeater_field'], array(), $grouping );
-
 $attr_helper = new Epsilon_Section_Attr_Helper( $fields, 'featured_right', Unapp_Repeatable_Sections::get_instance() );
 $parent_attr = array(
 	'id'    => ! empty( $fields['featured_right_section_unique_id'] ) ? array( $fields['featured_right_section_unique_id'] ) : array(),

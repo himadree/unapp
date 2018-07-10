@@ -61,72 +61,6 @@ class Unapp_Repeatable_Sections {
 	}
 
 	/**
-	 * Create appointment section
-	 *
-	 * @return array
-	 */
-	private function repeatable_appointment() {
-		$arr = array(
-			'id'          => 'appointment',
-			'title'       => esc_html__( 'Appointments Section', 'unapp' ),
-			'description' => esc_html__( 'Contact form for your appointments, you need to have a working CF7 form created.', 'unapp' ),
-			'integration' => array(
-				'status' => true,
-				'plugin' => 'contact-form-7',
-				'check'  => defined( 'WPCF7_VERSION' ),
-			),
-			'image'       => get_template_directory_uri() . '/assets/images/ewf-icon-section-appointments.png',
-			'fields'      => array(
-				'appointment_title'      => array(
-					'label'             => esc_html__( 'Title', 'unapp' ),
-					'type'              => 'epsilon-text-editor',
-					'default'           => wp_kses_post( 'Make an Appointment' ),
-					'sanitize_callback' => 'wp_kses_post',
-				),
-				'appointment_text'       => array(
-					'label'   => esc_html__( 'Description', 'unapp' ),
-					'type'    => 'epsilon-text-editor',
-					'default' => wp_kses_post( '<p>You do not need your physician or health care provider to make arrangements for you. Now it is easy and fast and you can book a consult within minutes!</p>' ),
-				),
-				'appointment_background' => array(
-					'label'   => esc_html__( 'Image', 'unapp' ),
-					'type'    => 'epsilon-image',
-					'default' => '',
-				),
-				'appointment_form'       => array(
-					'label'   => esc_html__( 'Appointment form', 'unapp' ),
-					'type'    => 'select',
-					'choices' => array(
-						'' => __( 'Select a Contact Form7 form', 'unapp' ),
-					),
-					'default' => '',
-				),
-			),
-		);
-
-		if ( defined( 'WPCF7_VERSION' ) ) {
-			/**
-			 * Get cforms, populated appointment_form
-			 */
-			$args = array(
-				'post_type' => 'wpcf7_contact_form',
-			);
-
-			$posts = new WP_Query( $args );
-			wp_reset_postdata();
-			if ( $posts->have_posts() ) {
-				while ( $posts->have_posts() ) {
-					$posts->the_post();
-
-					$arr['fields']['appointment_form']['choices'][ get_the_ID() ] = get_the_title();
-				}
-			}
-		}
-
-		return $arr;
-	}
-
-	/**
 	 * Banner Section
 	 */
 	private function repeatable_banner(){
@@ -291,11 +225,11 @@ class Unapp_Repeatable_Sections {
 						'choices' => array( 'boxedcenter', 'boxedin', 'fullwidth', ),
 					),
 					'row-spacing-top'           => array(
-						'default' => 'md',
+						'default' => 'none',
 						'choices' => array( 'lg', 'md', 'sm', 'none', ),
 					),
 					'row-spacing-bottom'        => array(
-						'default' => 'md',
+						'default' => 'none',
 						'choices' => array( 'lg', 'md', 'sm', 'none', ),
 					),
 					'column-group'              => array(
@@ -303,7 +237,7 @@ class Unapp_Repeatable_Sections {
 						'choices' => array( 2, 3, 4, ),
 					),
 					'column-alignment'          => array(
-						'default' => 'left',
+						'default' => 'center',
 						'choices' => array( 'left', 'center', 'right', ),
 					),
 				),
@@ -384,11 +318,11 @@ class Unapp_Repeatable_Sections {
 						'choices' => array( 'boxedcenter', 'boxedin', 'fullwidth', ),
 					),
 					'row-spacing-top'           => array(
-						'default' => 'md',
+						'default' => 'lg',
 						'choices' => array( 'lg', 'md', 'sm', 'none', ),
 					),
 					'row-spacing-bottom'        => array(
-						'default' => 'md',
+						'default' => 'lg',
 						'choices' => array( 'lg', 'md', 'sm', 'none', ),
 					),
 				),
@@ -455,7 +389,7 @@ class Unapp_Repeatable_Sections {
 				'collaborate_video_link' => array(
 					'label' => esc_html__( 'Youtube Link', 'unapp' ),
 					'type' => 'text',
-					'default' => esc_url( '#' ),
+					'default' => esc_url( 'https://vimeo.com/channels/staffpicks/93951774' ),
 					'sanitize_callback' => 'esc_url_raw'
 				),
 				'collaborate_video_animate'  => array(
@@ -557,7 +491,7 @@ class Unapp_Repeatable_Sections {
 					'label'   => esc_html__( 'Image', 'unapp' ),
 					'type'    => 'epsilon-image',
 					'size'    => 'large',
-					'default' => esc_url( get_template_directory_uri() . '/assets/images/mobile-1.jpg' ),
+					'default' => esc_url( get_template_directory_uri() . '/assets/images/mobile-2.jpg' ),
 				),
 				'featured_left_image_animate'  => array(
 					'label' => esc_html__( 'Image Animate', 'unapp' ),
@@ -626,7 +560,7 @@ class Unapp_Repeatable_Sections {
 				'enabled'   => true,
 				'layout'    => array(
 					'row-title-align'           => array(
-						'default' => 'right',
+						'default' => 'left',
 						'choices' => array( 'right', 'left', ),
 					),
 					'column-stretch'            => array(
@@ -683,14 +617,14 @@ class Unapp_Repeatable_Sections {
 				'featured_title' => array(
 					'label'             => esc_html__( 'Title', 'unapp' ),
 					'type'              => 'text',
-					'default'           => wp_kses_post( 'Real template creation' ),
+					'default'           => wp_kses_post( 'Finish template creation' ),
 					'sanitize_callback' => 'wp_kses_post',
 				),
 				'featured_image' => array(
 					'label'   => esc_html__( 'Image', 'unapp' ),
 					'type'    => 'epsilon-image',
 					'size'    => 'large',
-					'default' => esc_url( get_template_directory_uri() . '/assets/images/mobile-2.jpg' ),
+					'default' => esc_url( get_template_directory_uri() . '/assets/images/mobile-1.jpg' ),
 				),
 				'featured_right_image_animate'  => array(
 					'label' => esc_html__( 'Image Animate', 'unapp' ),
@@ -1121,7 +1055,7 @@ class Unapp_Repeatable_Sections {
 					'description' => esc_html__( 'Only selected items will be shown in the frontend.', 'unapp' ),
 					'type'        => 'selectize',
 					'multiple'    => true,
-					'choices'     => Unapp_Helper::get_group_values_from_meta( 'unapp_price_boxes', 'price_box_title' ),
+					'choices'     => Unapp_Helper::get_group_values_from_meta( 'unapp_pricing', 'price_box_title' ),
 					'default'     => array( 'all' ),
 				),
 				'pricing_navigation'        => array(
@@ -1132,7 +1066,7 @@ class Unapp_Repeatable_Sections {
 				),
 				'pricing_repeater_field'    => array(
 					'type'    => 'hidden',
-					'default' => 'unapp_price_boxes',
+					'default' => 'unapp_pricing',
 				),
 			),
 		);
@@ -1151,7 +1085,7 @@ class Unapp_Repeatable_Sections {
 				'enabled' => true,
 				'layout'  => array(
 					'row-title-align'           => array(
-						'default' => 'right',
+						'default' => 'left',
 						'choices' => array( 'left', 'right', ),
 					),
 					'column-stretch'            => array(
@@ -1245,7 +1179,8 @@ class Unapp_Repeatable_Sections {
 				'about_video_link' => array(
 					'label'             => esc_html__( 'Video Link', 'unapp' ),
 					'type'              => 'text',
-					'sanitize_callback' => 'sanitize_key',
+					'default' => esc_url( 'https://vimeo.com/channels/staffpicks/93951774' ),
+					'sanitize_callback' => 'esc_url_raw'
 				),
 				'about_image_animate'  => array(
 					'label' => esc_html__( 'Image Animate', 'unapp' ),

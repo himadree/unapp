@@ -96,7 +96,7 @@ Epsilon_Customizer::add_field(
 		'label'         => esc_html__( 'Headings', 'unapp' ),
 		'section'       => 'unapp_layout_section',
 		'description'   => esc_html__( 'Note: Current typography controls will only be affecting the blog.', 'unapp' ),
-		'stylesheet'    => 'medzone-lite-main',
+		'stylesheet'    => 'unapp-main',
 		'choices'       => array(
 			'font-family',
 			'font-weight',
@@ -126,7 +126,7 @@ Epsilon_Customizer::add_field(
 		'section'       => 'unapp_layout_section',
 		'label'         => esc_html__( 'Paragraphs', 'unapp' ),
 		'description'   => esc_html__( 'Note: Current typography controls will only be affecting the blog.', 'unapp' ),
-		'stylesheet'    => 'medzone-lite-main',
+		'stylesheet'    => 'unapp-main',
 		'choices'       => array(
 			'font-family',
 			'font-weight',
@@ -508,13 +508,13 @@ Epsilon_Customizer::add_field(
 			'member_title'            => array(
 				'label'             => esc_html__( 'Name', 'unapp' ),
 				'type'              => 'text',
-				'default'           => esc_html__( 'James Austin', 'unapp' ),
+				'default'           => esc_html__( 'Dorothy Murphy', 'unapp' ),
 				'sanitize_callback' => 'wp_kses_post',
 			),
 			'member_designation'            => array(
 				'label'             => esc_html__( 'Designation', 'unapp' ),
 				'type'              => 'text',
-				'default'           => esc_html__( 'Developer', 'unapp' ),
+				'default'           => esc_html__( 'Designer', 'unapp' ),
 				'sanitize_callback' => 'wp_kses_post',
 			),
 			'member_text'             => array(
@@ -567,7 +567,7 @@ Epsilon_Customizer::add_field(
  * Repeatable sections
  */
 Epsilon_Customizer::add_field(
-	'medzone_lite_frontpage_sections',
+	'unapp_frontpage_sections',
 	array(
 		'type'                => 'epsilon-section-repeater',
 		'label'               => esc_html__( 'Sections', 'unapp' ),

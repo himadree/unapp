@@ -1,5 +1,5 @@
 <?php
-$frontpage = Epsilon_Page_Generator::get_instance( 'medzone_lite_frontpage_sections_' . get_the_ID(), get_the_ID() );
+$frontpage = Epsilon_Page_Generator::get_instance( 'unapp_frontpage_sections_' . get_the_ID(), get_the_ID() );
 $fields = $frontpage->sections[ $section_id ];
 
 $attr_helper = new Epsilon_Section_Attr_Helper( $fields, 'blog', Unapp_Repeatable_Sections::get_instance() );

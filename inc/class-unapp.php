@@ -116,7 +116,7 @@ class Unapp {
 	 *
 	 */
 	public function init_nav_menus() {
-		//new Epsilon_Section_Navigation_Menu( 'medzone_lite_frontpage_sections_' );
+		//new Epsilon_Section_Navigation_Menu( 'unapp_frontpage_sections_' );
 	}
 
 	/**
@@ -130,7 +130,7 @@ class Unapp {
 	 * Customizer styles ( from repeater )
 	 */
 	public function customizer_styles() {
-		//new Epsilon_Section_Styling( 'unapp-main', 'medzone_lite_frontpage_sections_', Unapp_Repeatable_Sections::get_instance() );
+		//new Epsilon_Section_Styling( 'unapp-main', 'unapp_frontpage_sections_', Unapp_Repeatable_Sections::get_instance() );
 	}
 
 	/**

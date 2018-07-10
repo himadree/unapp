@@ -61,7 +61,7 @@ class Unapp_About_Widget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : 'About unapp';
-		$description = ! empty( $instance['description'] ) ? $instance['description'] : 'Description';
+		$description = ! empty( $instance['description'] ) ? $instance['description'] : 'Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics';
 		$facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : '#';
 		$twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : '#';
 		$linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : '#';
@@ -74,7 +74,7 @@ class Unapp_About_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'description' ) ); ?>"><?php esc_attr_e( 'Description:', 'unapp' ); ?></label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'description' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'description' ) ); ?>" type="text" value="<?php echo esc_attr( $description ); ?>">
+            <textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'description' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'description' ) ); ?>" type="text"><?php echo esc_attr( $description ); ?></textarea>
 		</p>
 
 		<p>
